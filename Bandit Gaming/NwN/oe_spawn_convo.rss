@@ -1,0 +1,23 @@
+/*
+				Trigger Spawn Convo Script
+	
+	Place this script in the ON ENTER command line, and edit the Waypoint Tag, and OBJECT_TYPE
+	in order to make an NPC spawn and start a conversation with the player upon entry into the
+	trigger zone.
+				Made By : SeptoseZero
+				
+*/
+
+void main()
+{
+object oPC = GetEnteringObject();
+if (!GetIsPC(oPC)) return;
+object oTarget;
+object oSpawn;
+location lTarget;
+oTarget = GetWaypointByTag("spawn_here");
+lTarget = GetLocation(oTarget);
+oSpawn = CreateObject(OBJECT_TYPE_CREATURE, "c_reddragon", lTarget);
+oTarget = oSpawn;
+AssignCommand(oTarget, ActionStartConversation(oPC, ""));
+}
