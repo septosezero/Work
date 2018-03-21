@@ -12,7 +12,7 @@ NWScript:
 //:://////////////////////////////////////////////
 
 //DO NOT EDIT THE VARIABLE INIT STRINGS OR THE FUNCTION STRINGS BELOW
-object oTarget;
+object oTarget = GetPCSpeaker();
 string sSubrace;
 int race;
 int str;
@@ -251,16 +251,16 @@ void lowermagic() /* Lower Use Magic Device Skill */
    ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectSkillDecrease(SKILL_USE_MAGIC_DEVICE,magic),oTarget);
 }
 int subrace() //You May Begin Editing Here
- if (race == RACIAL_TYPE_<type here>)
+ if (race == RACIAL_TYPE_DWARF)
   {
-   if (sSubrace == "Shield Dwarf")			
+   if (sSubrace == "Gold Dwarf")			
     {
       str = 0;
       dex = 2;
-      con = 2;
+      con = 0;
       intel = 0;
       wis = 0;
-      cha = -4;
+      cha = 2;
       empathy = 0;			
       conc = 0;
       dtrap = 0;
@@ -333,6 +333,49 @@ int subrace() //You May Begin Editing Here
      //lowerspot();
      //lowertaunt();
      //lowermagic();
+     return 1;
+    }
+  }
+  else
+  {
+   return 0;
+  }
+}
+int subrace() //You May Begin Editing Here
+ if (race == RACIAL_TYPE_DWARF)
+  {
+   if (sSubrace == "Duergar")			
+    {
+      str = -2;
+      dex = 0;
+      con = 0;
+      intel = 0;
+      wis = 0;
+      cha = -2;
+      empathy = 0;			
+      conc = 0;
+      dtrap = 0;
+      disc = 0;
+      heal = 0;
+      hide = 0;
+      list = 1;
+      lore = 0;
+      silent = 4;
+      open = 0;
+      parry = 0;
+      perf = 0;
+      pers = 0;
+      pick = 0;
+      search = 0;
+      strap = 0;
+      spell = 0;
+      spot = 0;
+      taunt = 0;
+      magic = 0;
+     lowerstr();
+     lowercha();
+     raiselist();
+     raisesilent();
      return 1;
     }
   }
