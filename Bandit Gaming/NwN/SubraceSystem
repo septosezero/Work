@@ -1,0 +1,26 @@
+/* 
+	Custom subrace system, created for use on NwN PW World of Aetheria.
+*/
+
+
+object oTarget = GetPCSpeaker();
+GetSubrace (object oTarget);
+
+if race (race == RACIAL_TYPE_DWARF)
+ {
+  if (sSubrace == "Gold Dwarf")
+  {
+   ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAbilityIncrease(ABILITY_CONSTITUTION,2),oTarget);
+   ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAbilityDecrease(ABILITY_DEXTERITY,2),oTarget);
+   return 1;
+  }
+ else
+  {
+   return 0;
+  }
+ if race (race == RACIAL_TYPE_DWARF)
+ {
+  ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAbilityDecrease(ABILITY_CHARISMA,2),oTarget);
+  ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectAbilityDecrease(ABILITY_STRENGTH,2),oTarget);
+  ApplyEffectToObject(DURATION_TYPE_PERMANENT,EffectSkillIncrease(SKILL_LISTEN,1),oTarget);
+  ApplyEffect
